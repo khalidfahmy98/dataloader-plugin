@@ -1,0 +1,180 @@
+// importing
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+@font-face {
+    font-family: gessLight;
+    src: url(../fonts/ArbFONTS-GE_SS_Unique_Light_1.otf)
+}
+
+@font-face {
+    font-family: gessBold;
+    src: url(../fonts/ArbFONTS-GE_SS_Unique_Bold_5.otf)
+}
+// Fonts
+$cairo-font: 'Cairo',sans-serif;
+$gesLight-font: gessLight,sans-serif;
+$gesBold-font: gessBold,sans-serif;
+// dimensions
+$full-width: 100%;
+$sectoring-margin: 20px;
+$sign-width: 300px;
+$sign-height: 300px;
+// Font sizes
+$paragaph-font: 12px;
+$header-font: 20px;
+$input-font: 13px;
+//main design ui colors
+$main-color: #151965;
+$font-menu-color: #dedede;
+$background-color: #eee;
+$text-color: #6d6d6d;
+$heading-text-color: #2e2e2e;
+$text-bg-color: #cccefa;
+$text-bg-color-darked: #8f90b1;
+//front colors
+$gray-ground: rgb(235, 235, 235);
+$gray-ground-border: rgb(223, 223, 223);
+$listmenu-color: rgb(161, 161, 161);
+$secondry-font: gessLight,sans-serif;
+$icon-color: rgb(212, 212, 212);
+$delete-color: #e74c3c;
+$edit-color: #f1c40f;
+$delete-color-hover: #d14738;
+$edit-color-hover: #dfb50e;
+$success-color: #10ac84;
+$success-color-hover: #0f9775;
+// mixins
+$pseudo-phprefix: "::-webkit-input-placeholder" "::-moz-placeholder" ":-ms-input-placeholder" "::placeholder";
+$ph-styles: ( font-family: $gesLight-font, font-size: small, font-style: normal, font-weight: normal, color: $text-color, letter-spacing : normal, line-height: normal, text-align: inherit, text-decoration: inherit, padding: 0 );
+$ph-form-styles: ( font-family: $gesLight-font, color: $main-color );
+
+@mixin compatibility ( $key, $val ) {
+    -webkit-#{$key}: #{$val};
+    -ms-#{$key}: #{$val};
+    -moz-#{$key}: #{$val};
+    -o-#{$key}: #{$val};
+    #{$key}: #{$val};
+}
+
+@mixin backgroundStyles ($src) {
+    background-image: url(../images/#{$src});
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+@mixin centeringAbsoluted {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include compatibility('transform','translate(-50%,-50%)');
+}
+
+@mixin placeholder-theme($styles) {
+    @each $pseudo in $pseudo-phprefix {
+
+        @at-root #{&}#{$pseudo} {
+            @each $key, $value in $styles {
+                #{$key}: #{$value};
+            }
+        }
+    }
+}
+
+@mixin placeholder {
+    @each $pseudo in $pseudo-phprefix {
+
+        @at-root #{&}#{$pseudo} {
+            @content
+        }
+    }
+}
+
+@mixin floatController {
+    &:after, &:before {
+        display: table;
+        content: " ";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+//styling
+* {
+    @include compatibility('box-sizing',' border-box');
+}
+/* table balancer styling */
+.tablebalancer-outer-wrapper {
+    position: relative;
+
+    .tablebalancer-header-wrapper {
+        padding: 15px 0px;
+        position: relative;
+        width: 100%;
+        @include floatController();
+
+        .searchable-controller {
+            width: 30%;
+            float: right;
+            position: relative;
+
+            i, svg, .searchdatatable {
+                color: $listmenu-color;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+            }
+
+            .disableSearch {
+                cursor: pointer;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+
+    .tablebalancer-footer-wrapper {
+        @include floatController();
+
+        .page-loader {
+            display: none;
+        }
+
+        #dataloader {
+            tbody {
+                display: none;
+            }
+        }
+
+        .pagging-controllers {
+            width: 37%;
+            float: right;
+
+            .traversing-controller {
+                display: inline-block;
+            }
+
+            .pagging-slider {
+                display: none;
+            }
+
+            #pagging-controller {
+                button {
+                    margin-left: 3px;
+                }
+            }
+        }
+        .pagging-custom-addons{
+            width:53%;
+            float:right;
+        }
+        .pagging-accessor {
+            width: 10%;
+            float: left;
+        }
+    }
+}
