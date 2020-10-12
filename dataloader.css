@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Cairo");
+@font-face {
+  font-family: gessLight;
+  src: url(../fonts/ArbFONTS-GE_SS_Unique_Light_1.otf);
+}
+@font-face {
+  font-family: gessBold;
+  src: url(../fonts/ArbFONTS-GE_SS_Unique_Bold_5.otf);
+}
+* {
+  -webkit-box-sizing:  border-box;
+  -ms-box-sizing:  border-box;
+  -moz-box-sizing:  border-box;
+  -o-box-sizing:  border-box;
+  box-sizing:  border-box;
+}
+
+/* table balancer styling */
+.tablebalancer-outer-wrapper {
+  position: relative;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper {
+  padding: 15px 0px;
+  position: relative;
+  width: 100%;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper:after, .tablebalancer-outer-wrapper .tablebalancer-header-wrapper:before {
+  display: table;
+  content: " ";
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper:after {
+  clear: both;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller {
+  width: 30%;
+  float: right;
+  position: relative;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller i, .tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller svg, .tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller .searchdatatable {
+  color: #a1a1a1;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller .disableSearch {
+  cursor: pointer;
+}
+.tablebalancer-outer-wrapper .tablebalancer-header-wrapper .searchable-controller input {
+  width: 100%;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper:after, .tablebalancer-outer-wrapper .tablebalancer-footer-wrapper:before {
+  display: table;
+  content: " ";
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper:after {
+  clear: both;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .page-loader {
+  display: none;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper #dataloader tbody {
+  display: none;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-controllers {
+  width: 37%;
+  float: right;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-controllers .traversing-controller {
+  display: inline-block;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-controllers .pagging-slider {
+  display: none;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-controllers #pagging-controller button {
+  margin-left: 3px;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-custom-addons {
+  width: 53%;
+  float: right;
+}
+.tablebalancer-outer-wrapper .tablebalancer-footer-wrapper .pagging-accessor {
+  width: 10%;
+  float: left;
+}
+
+/*# sourceMappingURL=tablebalancer.css.map */
